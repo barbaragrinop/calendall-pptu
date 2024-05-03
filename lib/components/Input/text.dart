@@ -1,3 +1,4 @@
+import 'package:calendall_pptu/util/custom-colors.dart';
 import 'package:flutter/material.dart';
 
 class FieldText extends StatelessWidget {
@@ -35,17 +36,17 @@ class FieldText extends StatelessWidget {
           decoration: InputDecoration (
             labelText: name,
             counterText: "", 
-            labelStyle: const TextStyle ( color: Colors.grey), 
+            labelStyle: const TextStyle (color: CustomColors.PrimaryGray), 
             border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey), 
+              borderSide: BorderSide(color: CustomColors.PrimaryGray), 
               borderRadius: BorderRadius.all(Radius.circular(10))
             ),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey), 
+              borderSide: BorderSide(color: CustomColors.PrimaryGray), 
               borderRadius: BorderRadius.all(Radius.circular(10))
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey), 
+              borderSide: BorderSide(color: CustomColors.PrimaryGray), 
               borderRadius: BorderRadius.all(Radius.circular(10))
             ),
           ),
