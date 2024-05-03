@@ -74,7 +74,6 @@ class LoginPage extends StatelessWidget {
                     Image.asset('assets/images/icon-google.png'), 
                     const SizedBox(width: 40.0),
                     Image.asset('assets/images/icon-teams.png'), 
-                    // SvgPicture.asset('assets/images/icon-teams.png'), 
                 ],
               ),
             ), 
