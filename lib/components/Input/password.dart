@@ -1,18 +1,18 @@
 import 'package:calendall_pptu/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
-class FieldPassword extends StatelessWidget {
+class InputPassword extends StatelessWidget {
   final TextEditingController controller;
   final String name;
-  final bool isEnable;
+  final bool isEnabled;
   final TextInputType inputType;
   final TextCapitalization textCapitalization;
 
-  const FieldPassword({
+  const InputPassword({
     super.key, 
     required this.controller, 
     required this.name, 
-    required this.isEnable,
+    required this.isEnabled,
     required this.inputType, 
     required this.textCapitalization
   });
@@ -24,7 +24,7 @@ class FieldPassword extends StatelessWidget {
       child: 
         TextField (
           controller: controller,
-          enabled: isEnable,
+          enabled: isEnabled,
           maxLines: 1,
           keyboardType: inputType,
           textAlign: TextAlign.start,
@@ -35,20 +35,22 @@ class FieldPassword extends StatelessWidget {
             fontSize: 16, 
           ),
           decoration: InputDecoration (
+            filled: true,
+            fillColor: Colors.white,
             labelText: name,
             counterText: "", 
             labelStyle: const TextStyle (color: CustomColors.primaryGray), 
             border: const OutlineInputBorder(
-              borderSide: BorderSide(color: CustomColors.primaryGray), 
-              borderRadius: BorderRadius.all(Radius.circular(10))
+              borderSide: BorderSide(color: Colors.transparent), 
+              borderRadius: BorderRadius.all(Radius.circular(6))
             ),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: CustomColors.primaryGray), 
-              borderRadius: BorderRadius.all(Radius.circular(10))
+              borderSide: BorderSide(color: Colors.transparent), 
+              borderRadius: BorderRadius.all(Radius.circular(6))
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: CustomColors.primaryGray), 
-              borderRadius: BorderRadius.all(Radius.circular(10))
+              borderSide: BorderSide(color: Colors.transparent), 
+              borderRadius: BorderRadius.all(Radius.circular(6))
             ),
           ),
         )

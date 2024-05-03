@@ -7,7 +7,7 @@ class CustomColors {
   static const Color blueDark1 = Color(0xff04396D);
   static const Color blueDark = Color(0xff001F4B);
 
-  static const Color primaryGray = Color(0xff001F4B);
+  static const Color primaryGray = Color(0xff4D4C4C);
 
   static const Color purplePrimary = Color(0xff7472E2);
   static const Color purpleSecondary = Color(0xff7472E2);
