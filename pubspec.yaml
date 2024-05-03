@@ -57,6 +57,8 @@ flutter:
 
   assets: 
     - assets/images/logo.svg
+    - assets/images/icon-google.png
+    - assets/images/icon-teams.png
 
   fonts: 
     - family: AmaticSC
