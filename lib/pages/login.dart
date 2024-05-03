@@ -1,6 +1,6 @@
 import 'package:calendall_pptu/components/Input/password.dart';
 import 'package:calendall_pptu/components/Input/text.dart';
-import 'package:calendall_pptu/util/custom-colors.dart';
+import 'package:calendall_pptu/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,13 +13,14 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: CustomColors.BlueLight,
+      backgroundColor: CustomColors.blueLight,
       body: SingleChildScrollView(
         
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             SvgPicture.asset('assets/images/logo.svg'), //   <--- image
+            
             FieldText(
               controller: emailController, 
               name: "E-mail", 
