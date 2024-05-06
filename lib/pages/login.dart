@@ -2,6 +2,7 @@ import 'package:calendall_pptu/components/Button/primary.dart';
 import 'package:calendall_pptu/components/Input/password.dart';
 import 'package:calendall_pptu/components/Input/text.dart';
 import 'package:calendall_pptu/components/LogoText/logo.dart';
+import 'package:calendall_pptu/pages/recuperacao_senha/send_email.dart';
 import 'package:calendall_pptu/util/custom_colors.dart';
 import 'package:flutter/material.dart'; 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,18 +40,23 @@ class LoginPage extends StatelessWidget {
               inputType: TextInputType.text,
               textCapitalization: TextCapitalization.words,
             ),
-            Container(
-              alignment: Alignment.topRight,
-              child: const Text("Esqueceu a senha?",
-                style: TextStyle(
-                  shadows: [Shadow(color: CustomColors.primaryGray, offset: Offset(0, -5))],
-                  color: Colors.transparent,
-                  decoration: TextDecoration.underline,
-                  decorationColor: CustomColors.primaryGray,
-                  decorationThickness: 1
-                ), 
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SendEmailPage()));
+              },
+              child: Container(
+                alignment: Alignment.topRight,
+                child: const Text("Esqueceu a senha?",
+                  style: TextStyle(
+                    shadows: [Shadow(color: CustomColors.primaryGray, offset: Offset(0, -5))],
+                    color: Colors.transparent,
+                    decoration: TextDecoration.underline,
+                    decorationColor: CustomColors.primaryGray,
+                    decorationThickness: 1
+                  ), 
+                ),
               ),
-            ), 
+            ),
             Container(
               margin: const EdgeInsets.only(top: 40.0),
               child: PrimaryButton(text: "Entrar", onPressed: () => null, isEnabled: true)
@@ -77,18 +83,25 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ), 
-            Container(
-              alignment: Alignment.center,
-              child: const Text("Ainda não é cadastrado? Cadastre-se!",
-                style: TextStyle(
-                  shadows: [Shadow(color: CustomColors.primaryGray, offset: Offset(0, -5))],
-                  color: Colors.transparent,
-                  decoration: TextDecoration.underline,
-                  decorationColor: CustomColors.primaryGray,
-                  decorationThickness: 1
-                ), 
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SendEmailPage()));
+              },
+              child: Container(
+                alignment: Alignment.center,
+                child: const Text("Ainda não é cadastrado? Cadastre-se!",
+                  style: TextStyle(
+                    shadows: [Shadow(color: CustomColors.primaryGray, offset: Offset(0, -5))],
+                    color: Colors.transparent,
+                    decoration: TextDecoration.underline,
+                    decorationColor: CustomColors.primaryGray,
+                    decorationThickness: 1
+                  ),
+                ),
               ),
             ), 
+
+           
             Container(
               alignment: Alignment.bottomCenter,
               margin: const EdgeInsets.only(
