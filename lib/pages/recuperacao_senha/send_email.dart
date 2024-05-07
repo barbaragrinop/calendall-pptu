@@ -64,7 +64,7 @@ class SendEmailPage extends StatelessWidget {
           ),
         ),
         // bottomSheet: const Footer(),
-         bottomNavigationBar: const Footer()
+         bottomNavigationBar: Footer()
       );
   }
 }
