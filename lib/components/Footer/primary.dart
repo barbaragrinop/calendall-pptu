@@ -1,25 +1,31 @@
+import 'package:calendall_pptu/util/custom_colors.dart';
 import 'package:flutter/material.dart';
+
 class Footer extends StatelessWidget {
-  const Footer({super.key});
+  Footer({super.key});
+
+  final now = DateTime.now().year;
+  static const double fontSize = 12.0;
 
   @override
   Widget build(BuildContext context) {
-    return const BottomAppBar(
-      padding: EdgeInsets.all(20), 
-      child: SizedBox(
-        // height: 1.0, // Change this value to your desired footer height
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Text(
-              'Seu footer aqui',
-              style: TextStyle(
-                color: Colors.black, // Cor do texto
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
+    return Container(
+      color: CustomColors.blueMedium,
+      height: 10.0, 
+      child: Center(
+        child: RichText(
+          text: TextSpan(
+            children: [
+              const TextSpan(
+                text: 'Todos os direitos reservados © ',
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               ),
-            ),
-          ],
+              TextSpan(
+                text: '$now',
+                style: const TextStyle(color: Colors.white, fontSize: fontSize, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );
