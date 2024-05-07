@@ -23,8 +23,10 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center, // Centraliza verticalmente
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SvgPicture.asset('assets/images/logo.svg'), 
+            SvgPicture.asset('assets/images/logo.svg', ), 
+            const SizedBox(height: 10.0),
             const LogoText(),
+            const SizedBox(height: 40.0),
             InputText(
               controller: emailController,
               name: "E-mail",
@@ -42,7 +44,7 @@ class LoginPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SendEmailPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SendEmailPage()));
               },
               child: Container(
                 alignment: Alignment.topRight,
@@ -85,7 +87,7 @@ class LoginPage extends StatelessWidget {
             ), 
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SendEmailPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SendEmailPage()));
               },
               child: Container(
                 alignment: Alignment.center,
