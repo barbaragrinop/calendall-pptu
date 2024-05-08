@@ -2,7 +2,7 @@ import 'package:calendall_pptu/components/Button/primary.dart';
 import 'package:calendall_pptu/components/Footer/primary.dart';
 import 'package:calendall_pptu/components/Header/primary.dart';
 import 'package:calendall_pptu/components/Input/password.dart';
-import 'package:calendall_pptu/components/Input/text.dart';
+import 'package:calendall_pptu/pages/forgot_password/recovery_code.dart';
 import 'package:calendall_pptu/pages/login.dart';
 import 'package:calendall_pptu/util/custom_colors.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 class NewPasswordPage extends StatelessWidget {
   NewPasswordPage({super.key});
 
-  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class NewPasswordPage extends StatelessWidget {
                 ),
               ),
               InputPassword(
-                controller: emailController,
+                controller: passwordController,
                 name: "Nova senha",
                 isEnabled: true,
                 inputType: TextInputType.text,
@@ -56,7 +57,7 @@ class NewPasswordPage extends StatelessWidget {
                 hasBorder: true,
               ),
               InputPassword(
-                controller: emailController,
+                controller: confirmPasswordController,
                 name: "Confirmação de Senha",
                 isEnabled: true,
                 inputType: TextInputType.text,
@@ -72,7 +73,7 @@ class NewPasswordPage extends StatelessWidget {
                       isEnabled: true)),
               GestureDetector(
                   onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage())),
+                      MaterialPageRoute(builder: (context) => RecoveryCodePage())),
                   child: Container(
                     margin: const EdgeInsets.only(top: 20.0),
                     child: const Text(

@@ -3,6 +3,7 @@ import 'package:calendall_pptu/components/Footer/primary.dart';
 import 'package:calendall_pptu/components/Header/primary.dart';
 import 'package:calendall_pptu/components/Input/text.dart';
 import 'package:calendall_pptu/pages/forgot_password/new_password.dart';
+import 'package:calendall_pptu/pages/forgot_password/send_email.dart';
 import 'package:calendall_pptu/pages/login.dart';
 import 'package:calendall_pptu/util/custom_colors.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,7 @@ class RecoveryCodePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => NewPasswordPage()))
                       }, isEnabled: true)),
               GestureDetector(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage())),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SendEmailPage())),
                   child: Container(
                     margin: const EdgeInsets.only(top: 20.0),
                     child: const Text(
