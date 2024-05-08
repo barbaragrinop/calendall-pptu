@@ -2,6 +2,8 @@ import 'package:calendall_pptu/components/Button/primary.dart';
 import 'package:calendall_pptu/components/Footer/primary.dart';
 import 'package:calendall_pptu/components/Header/primary.dart';
 import 'package:calendall_pptu/components/Input/text.dart';
+import 'package:calendall_pptu/pages/forgot_password/recovery_code.dart';
+import 'package:calendall_pptu/pages/login.dart';
 import 'package:calendall_pptu/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -54,17 +56,27 @@ class SendEmailPage extends StatelessWidget {
                 hasBorder: true,
               ),
               Container(
-                margin: const EdgeInsets.only(top: 40.0),
-                child: PrimaryButton(
-                  text: "Entrar", onPressed: () => null, isEnabled: true
-                )
-              ),
-              
+                  margin: const EdgeInsets.only(top: 40.0),
+                  child: PrimaryButton(
+                      text: "Entrar", onPressed: () => {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => RecoveryCodePage()))
+                      }, isEnabled: true)),
+              GestureDetector(
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage())),
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 20.0),
+                    child: const Text(
+                      "Voltar",
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 14,
+                          color: CustomColors.blueDark),
+                    ),
+                  ))
             ],
           ),
         ),
         // bottomSheet: const Footer(),
-         bottomNavigationBar: Footer()
-      );
+        bottomNavigationBar: Footer());
   }
 }

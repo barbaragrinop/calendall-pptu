@@ -5,13 +5,13 @@ class Footer extends StatelessWidget {
   Footer({super.key});
 
   final now = DateTime.now().year;
-  static const double fontSize = 12.0;
+  static const double fontSize = 10.0;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: CustomColors.blueMedium,
-      height: 10.0, 
+      height: 17.0, 
       child: Center(
         child: RichText(
           text: TextSpan(
