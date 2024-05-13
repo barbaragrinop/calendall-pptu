@@ -1,11 +1,11 @@
-import 'package:calendall_pptu/components/Button/primary.dart';
-import 'package:calendall_pptu/components/Input/password.dart';
-import 'package:calendall_pptu/components/Input/text.dart';
-import 'package:calendall_pptu/components/LogoText/logo.dart';
-import 'package:calendall_pptu/pages/forgot_password/send_email.dart';
-import 'package:calendall_pptu/pages/home.dart';
-import 'package:calendall_pptu/pages/register_user.dart';
-import 'package:calendall_pptu/util/custom_colors.dart';
+import 'package:frontend/components/Button/primary.dart';
+import 'package:frontend/components/Input/password.dart';
+import 'package:frontend/components/Input/text.dart';
+import 'package:frontend/components/LogoText/logo.dart';
+import 'package:frontend/pages/forgot_password/send_email.dart';
+import 'package:frontend/pages/home.dart';
+import 'package:frontend/pages/register_user.dart';
+import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

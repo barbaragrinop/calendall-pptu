@@ -1,9 +1,9 @@
-import 'package:calendall_pptu/components/Button/primary.dart';
-import 'package:calendall_pptu/components/Header/primary.dart';
-import 'package:calendall_pptu/components/Input/password.dart';
-import 'package:calendall_pptu/components/Input/text.dart';
-import 'package:calendall_pptu/pages/login.dart';
-import 'package:calendall_pptu/util/custom_colors.dart';
+import 'package:frontend/components/Button/primary.dart';
+import 'package:frontend/components/Header/primary.dart';
+import 'package:frontend/components/Input/password.dart';
+import 'package:frontend/components/Input/text.dart';
+import 'package:frontend/pages/login.dart';
+import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class RegisterUserPage extends StatelessWidget {

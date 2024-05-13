@@ -1,10 +1,10 @@
-import 'package:calendall_pptu/components/Button/primary.dart';
-import 'package:calendall_pptu/components/Footer/primary.dart';
-import 'package:calendall_pptu/components/Header/primary.dart';
-import 'package:calendall_pptu/components/Input/text.dart';
-import 'package:calendall_pptu/pages/forgot_password/new_password.dart';
-import 'package:calendall_pptu/pages/forgot_password/send_email.dart';
-import 'package:calendall_pptu/util/custom_colors.dart';
+import 'package:frontend/components/Button/primary.dart';
+import 'package:frontend/components/Footer/primary.dart';
+import 'package:frontend/components/Header/primary.dart';
+import 'package:frontend/components/Input/text.dart';
+import 'package:frontend/pages/forgot_password/new_password.dart';
+import 'package:frontend/pages/forgot_password/send_email.dart';
+import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class RecoveryCodePage extends StatelessWidget {

@@ -1,4 +1,4 @@
-package com.example.calendall_pptu
+package com.example.frontend
 
 import io.flutter.embedding.android.FlutterActivity
 

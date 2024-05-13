@@ -1,5 +1,5 @@
-import 'package:calendall_pptu/pages/login.dart';
-import 'package:calendall_pptu/pages/settings/settings.dart';
+import 'package:frontend/pages/login.dart';
+import 'package:frontend/pages/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 void main() {

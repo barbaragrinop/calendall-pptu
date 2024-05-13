@@ -1,5 +1,5 @@
-import 'package:calendall_pptu/pages/home.dart';
-import 'package:calendall_pptu/pages/settings/settings.dart';
+import 'package:frontend/pages/home.dart';
+import 'package:frontend/pages/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavigationBar extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:calendall_pptu/util/custom_colors.dart';
+import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class InputPassword extends StatelessWidget {

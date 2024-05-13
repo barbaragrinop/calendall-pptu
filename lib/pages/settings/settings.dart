@@ -1,8 +1,8 @@
-import 'package:calendall_pptu/components/Header/primary.dart';
-import 'package:calendall_pptu/components/Menu/navigation_bar.dart';
-import 'package:calendall_pptu/pages/settings/personal_data.dart';
-import 'package:calendall_pptu/pages/settings/sound_notification.dart';
-import 'package:calendall_pptu/util/custom_colors.dart';
+import 'package:frontend/components/Header/primary.dart';
+import 'package:frontend/components/Menu/navigation_bar.dart';
+import 'package:frontend/pages/settings/personal_data.dart';
+import 'package:frontend/pages/settings/sound_notification.dart';
+import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
