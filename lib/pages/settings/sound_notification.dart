@@ -1,5 +1,4 @@
 import 'package:frontend/components/Header/primary.dart';
-import 'package:frontend/components/Input/text.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
 import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
