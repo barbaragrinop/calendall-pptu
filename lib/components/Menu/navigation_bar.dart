@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:frontend/pages/add_event.dart';
 import 'package:frontend/pages/home.dart';
 import 'package:frontend/pages/settings/settings.dart';
-import 'package:flutter/material.dart';
+import 'package:frontend/util/custom_colors.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({super.key, required this.selectedIndex});
@@ -9,27 +12,60 @@ class CustomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      // Use const for the list of destinations to improve performance
-      destinations: const [
-        NavigationDestination(
-            icon: Icon(Icons.calendar_today_sharp), label: 'Calendar'),
-        NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-        NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
-      ],
-      selectedIndex: selectedIndex,
-      onDestinationSelected: (int index) {
-        if (index == 0) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
-        } else if (index == 1) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
-        } else if (index == 2) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SettingsPage()));
-        }
-      },
-    );
+    return NavigationBarTheme(
+        data: const NavigationBarThemeData(
+          labelTextStyle:
+              WidgetStatePropertyAll(TextStyle(color: CustomColors.white01)),
+          indicatorColor: CustomColors.white01,
+        ),
+        child: NavigationBar(
+          backgroundColor: CustomColors.blueSecondary,
+
+          // Use const for the list of destinations to improve performance
+          destinations: [
+            NavigationDestination(
+              icon: Container(
+                child: SvgPicture.asset(
+                  'assets/images/icon-add-event.svg',
+                  width: 30,
+                  height: 30,
+                  colorFilter: selectedIndex == 0
+                      ? const ColorFilter.mode(
+                          CustomColors.blueDark1, BlendMode.srcIn)
+                      : const ColorFilter.mode(
+                          CustomColors.white01, BlendMode.srcIn),
+                ),
+              ),
+              label: 'Novo Evento',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.home,
+                  color: selectedIndex == 1
+                      ? CustomColors.blueDark1
+                      : CustomColors.white01),
+              label: 'Início',
+            ),
+            NavigationDestination(
+                icon: Icon(Icons.settings,
+                    color: selectedIndex == 2
+                        ? CustomColors.blueDark1
+                        : CustomColors.white01),
+                label: 'Config.'),
+          ],
+          selectedIndex: selectedIndex,
+
+          onDestinationSelected: (int index) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => index == 0
+                    ? AddEventPage()
+                    : index == 1
+                        ? const HomePage() // Corrected navigation for Home
+                        : const SettingsPage(),
+              ),
+            );
+          },
+        ));
   }
 }

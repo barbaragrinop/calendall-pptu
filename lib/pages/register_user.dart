@@ -108,11 +108,11 @@ class RegisterUserPage extends StatelessWidget {
                   child: PrimaryButton(
                       text: "Cadastrar",
                       onPressed: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage())),
+                          MaterialPageRoute(builder: (context) => const LoginPage())),
                       isEnabled: true)),
               GestureDetector(
                   onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage())),
+                      MaterialPageRoute(builder: (context) => const LoginPage())),
                   child: Container(
                     margin: const EdgeInsets.only(top: 20.0),
                     child: const Text(

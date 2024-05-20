@@ -62,7 +62,7 @@ class SendEmailPage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => RecoveryCodePage()))
                       }, isEnabled: true)),
               GestureDetector(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage())),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const  LoginPage())),
                   child: Container(
                     margin: const EdgeInsets.only(top: 20.0),
                     child: const Text(

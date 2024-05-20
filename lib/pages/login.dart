@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:frontend/components/Button/primary.dart';
 import 'package:frontend/components/Input/password.dart';
 import 'package:frontend/components/Input/text.dart';
@@ -11,36 +9,35 @@ import 'package:frontend/pages/register_user.dart';
 import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage>{
+class LoginPageState extends State<LoginPage>{
   
 
   @override
   Widget build(BuildContext context) {
 
     final formKey = GlobalKey<FormState>();
-    String url = "http://localhost:8080/user/login";
+    // String url = "http://localhost:8080/user/login";
     User user = User("", ""); 
 
-    Future save() async {
+    // Future save() async {
       
-      var response =  await http.post(Uri.parse(url), 
-      //prevent cors policy
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'},
-        body: json.encode({
-          'email': user.email,
-          'password': user.password
-       })
-      );
-    }
+    //   var response =  await http.post(Uri.parse(url), 
+    //   //prevent cors policy
+    //     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'},
+    //     body: json.encode({
+    //       'email': user.email,
+    //       'password': user.password
+    //    })
+    //   );
+    // }
 
     return Scaffold(
       backgroundColor: CustomColors.blueLight,
@@ -123,8 +120,8 @@ class _LoginPageState extends State<LoginPage>{
                 child: PrimaryButton(
                     text: "Entrar",
                     onPressed: () {
-                      save();
-                      // Navigator.push(context, MaterialPageRoute( builder: (context) => const HomePage())),
+                      // save();
+                      Navigator.push(context, MaterialPageRoute( builder: (context) => const HomePage()));
                     },
                     isEnabled: true)),
             Container(

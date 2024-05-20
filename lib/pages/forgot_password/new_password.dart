@@ -69,7 +69,7 @@ class NewPasswordPage extends StatelessWidget {
                   child: PrimaryButton(
                       text: "Alterar senha",
                       onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage())),
+                      MaterialPageRoute(builder: (context) => const LoginPage())),
                       isEnabled: true)),
               GestureDetector(
                   onTap: () => Navigator.push(context,
