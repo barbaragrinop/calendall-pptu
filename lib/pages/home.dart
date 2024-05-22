@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
               ListTile(
                 title: const Text("Cadastrar Eventos"),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute( builder: (context) => AddEventPage()));
+                  Navigator.push(context, MaterialPageRoute( builder: (context) => AddEventPage(propInitialDate: today,)));
                   // Implementação para "Cadastrar Eventos"
                   // Navigator.pop(context);
                 },

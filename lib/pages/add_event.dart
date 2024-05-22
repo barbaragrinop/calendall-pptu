@@ -12,7 +12,9 @@ import 'package:frontend/util/custom_colors.dart';
 import 'package:intl/intl.dart';
 
 class AddEventPage extends StatelessWidget {
-  AddEventPage({super.key});
+  final DateTime? propInitialDate;
+  
+  AddEventPage({super.key, this.propInitialDate});
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
@@ -23,6 +25,12 @@ class AddEventPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    if(propInitialDate != null){
+      print("asdasdasd $propInitialDate.toString()");
+      startDateController.text = DateFormat('dd/MM/yyyy').format(propInitialDate!);
+    }
+
     return Scaffold(
       appBar: const Header(
         hasReturnIcon: false,
