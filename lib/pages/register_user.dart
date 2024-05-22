@@ -1,5 +1,6 @@
 import 'package:frontend/components/Button/primary.dart';
 import 'package:frontend/components/Header/primary.dart';
+import 'package:frontend/components/Input/date.dart';
 import 'package:frontend/components/Input/password.dart';
 import 'package:frontend/components/Input/text.dart';
 import 'package:frontend/pages/login.dart';
@@ -54,12 +55,10 @@ class RegisterUserPage extends StatelessWidget {
                 textCapitalization: TextCapitalization.words,
                 hasBorder: true,
               ),
-              InputText(
+              InputDate(
                 controller: birthDateController,
                 name: "Data de Nascimento",
                 isEnabled: true,
-                inputType: TextInputType.datetime,
-                textCapitalization: TextCapitalization.words,
                 hasBorder: true,
               ),
               InputPassword(

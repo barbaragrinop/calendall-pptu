@@ -14,7 +14,7 @@ class SyncCalendarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: Header(hasReturnIcon: false),
+      appBar: Header(hasReturnIcon: true),
       backgroundColor: CustomColors.white01,
       body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 40.0),

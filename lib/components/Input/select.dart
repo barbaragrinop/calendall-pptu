@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/util/custom_colors.dart';
+import 'package:frontend/util/priorities.dart';
 
 class InputSelect extends StatefulWidget {
   final List<String> options;
@@ -7,15 +8,17 @@ class InputSelect extends StatefulWidget {
   final TextEditingController? controller;
   final Function(String?)? validator;
   final Function(String?)? onChanged;
+  final EventPriority? initialValue;
 
   const InputSelect({
-    Key? key,
+   super.key,
     required this.options,
     required this.label,
     this.controller,
     this.validator,
+    this.initialValue,
     this.onChanged,
-  }) : super(key: key);
+  }) ;
 
   @override
   InputSelectState createState() => InputSelectState();
@@ -34,6 +37,14 @@ class InputSelectState extends State<InputSelect> {
         return CustomColors.blueMedium;
       default:
         return Colors.transparent;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.initialValue != null) {
+      _selectedOption = widget.initialValue.toString();
     }
   }
 
@@ -79,20 +90,20 @@ class InputSelectState extends State<InputSelect> {
                 ),
               );
             }).toList(),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               filled: true,
               fillColor: Colors.white,
               contentPadding:
-                  const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
-              border: const OutlineInputBorder(
+                  EdgeInsets.symmetric(vertical: 0, horizontal: 12),
+              border: OutlineInputBorder(
                 borderSide: BorderSide(color: CustomColors.blueDark1),
                 borderRadius: BorderRadius.all(Radius.circular(6)),
               ),
-              enabledBorder: const OutlineInputBorder(
+              enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: CustomColors.blueDark1),
                 borderRadius: BorderRadius.all(Radius.circular(6)),
               ),
-              focusedBorder: const OutlineInputBorder(
+              focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: CustomColors.blueDark1),
                 borderRadius: BorderRadius.all(Radius.circular(6)),
               ),

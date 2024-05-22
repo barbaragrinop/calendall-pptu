@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/pages/add_event.dart';
 import 'package:frontend/pages/see_events.dart';
 import 'package:frontend/util/custom_colors.dart';
+import 'package:frontend/util/priorities.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart'; // Import this package
@@ -425,8 +426,9 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: ListEventItem(
                         eventName: 'Conseguir um 10 na matéria',
-                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventDate: today,
                         eventId: '1',
+                        description: 'Estudar muito para a prova',
                         priority: EventPriority.high),
                   ),
                   const SizedBox(height: 15.0),
@@ -437,8 +439,9 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: ListEventItem(
                         eventName: 'Estudar engenharia',
-                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventDate: today,
                         eventId: '1',
+                        description: 'Estudar MUITO',
                         priority: EventPriority.medium),
                   ),
                   const SizedBox(height: 15.0),
@@ -449,19 +452,25 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: ListEventItem(
                         eventName: 'Barzinho pós aula',
-                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventDate: today,
+                        description: 'Relaxar',
                         eventId: '1',
                         priority: EventPriority.low),
                   ),
                   const SizedBox(height: 15.0),
                   GestureDetector(
                     onTap: () {
-                      _onClickEvent('Terapia', today, 'Falar sobre a semana',
-                          'Alta', '1 dia antes');
+                      _onClickEvent(
+                          'Terapia',
+                          today,
+                          'Falar sobre o fim do semestre',
+                          'Alta',
+                          '1 dia antes');
                     },
                     child: ListEventItem(
                         eventName: 'Terapia',
-                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventDate: today,
+                        description: 'Surtar',
                         eventId: '1',
                         priority: EventPriority.high),
                   ),

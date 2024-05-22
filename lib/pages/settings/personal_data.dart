@@ -57,7 +57,7 @@ class PersonalDataPage extends StatelessWidget {
                 Container(
                     margin: const EdgeInsets.only(top: 40.0),
                     child: PrimaryButton(
-                        text: "Entrar",
+                        text: "Alterar",
                         onPressed: () => Navigator.push(context,
                             MaterialPageRoute(
                                 builder: (context) => const HomePage())

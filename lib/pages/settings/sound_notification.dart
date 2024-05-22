@@ -14,7 +14,7 @@ class SoundNotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Header(hasReturnIcon: false),
+      appBar: const Header(hasReturnIcon: true),
       backgroundColor: CustomColors.white01,
       body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),

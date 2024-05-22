@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/pages/add_event.dart';
 import 'package:frontend/util/custom_colors.dart';
+import 'package:frontend/util/priorities.dart';
+import 'package:intl/intl.dart';
 
-enum EventPriority { low, medium, high }
 
 class ListEventItem extends StatelessWidget {
   final String eventName;
-  final String eventDate;
+  final DateTime eventDate;
   final String eventId;
   final EventPriority priority;
+  final bool? isEditing;
+  final String? description;
 
   const ListEventItem(
       {super.key,
       required this.eventName,
       required this.eventDate,
       required this.eventId,
-      required this.priority});
+      required this.description,
+      required this.priority,
+      this.isEditing = false});
 
   Color getColorEvent(EventPriority priority) {
     switch (priority) {
@@ -29,6 +35,8 @@ class ListEventItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('dd/MM/yyyy').format(eventDate);
+
     return Row(
       children: [
         Container(
@@ -68,19 +76,41 @@ class ListEventItem extends StatelessWidget {
                       ),
                       const SizedBox(height: 4.0), // Add spacing between texts
                       Text(
-                        eventDate,
+                        formattedDate.toString(),
                         style: const TextStyle(fontSize: 12.0),
                       ),
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 16.0),
-                  child: Icon(
-                    Icons.info,
-                    color: CustomColors.primaryGray,
+                GestureDetector(
+                  onTap: () => {
+                    if (isEditing == true)
+                      {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddEventPage(
+                                      eventId: eventId,
+                                      eventName: eventName,
+                                      eventDate: eventDate,
+                                      description: description,
+                                      priority: priority,
+                                      isEditing: true,
+                                    )))
+                      }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 16.0),
+                    child: Icon(
+                      (isEditing != null && isEditing == false)
+                          ? Icons.info
+                          : Icons.edit,
+                      color: (isEditing != null && isEditing == false)
+                          ? CustomColors.primaryGray
+                          : CustomColors.yellow,
+                    ),
                   ),
-                ),
+                )
               ],
             ),
           ),

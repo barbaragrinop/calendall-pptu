@@ -5,6 +5,7 @@ import 'package:frontend/components/Header/primary.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
 import 'package:frontend/pages/home.dart';
 import 'package:frontend/util/custom_colors.dart';
+import 'package:frontend/util/priorities.dart';
 import 'package:intl/intl.dart';
 
 class EventByDayPage extends StatelessWidget {
@@ -36,42 +37,48 @@ class EventByDayPage extends StatelessWidget {
                             "Eventos do dia ${DateFormat('dd/MM/yyyy').format(currentDate!)}",
                             style: const TextStyle(fontSize: 18),
                           ),
-                  const SizedBox(height: 15.0),
-
+                          const SizedBox(height: 15.0),
                           Divider(
                             thickness: 1.0,
                             color: Colors.grey[300],
                             height: 10.0,
                           ),
-                  const SizedBox(height: 30.0),
-
+                          const SizedBox(height: 30.0),
                           ListEventItem(
-                              eventName: 'Conseguir um 10 na matéria',
-                              eventDate:
-                                  DateFormat('dd/MM/yyyy').format(currentDate!),
-                              eventId: '1',
-                              priority: EventPriority.high),
+                            eventName: 'Conseguir um 10 na matéria',
+                            eventDate: currentDate!,
+                            eventId: '1',
+                            priority: EventPriority.high,
+                            description: 'Estudar muito para a prova',
+                            isEditing: true,
+                          ),
                           const SizedBox(height: 15.0),
                           ListEventItem(
-                              eventName: 'Estudar engenharia',
-                              eventDate:
-                                  DateFormat('dd/MM/yyyy').format(currentDate!),
-                              eventId: '1',
-                              priority: EventPriority.medium),
+                            eventName: 'Estudar engenharia',
+                            eventDate: currentDate!,
+                            eventId: '1',
+                            priority: EventPriority.medium,
+                            description: 'Estudar MUITO',
+                            isEditing: true,
+                          ),
                           const SizedBox(height: 15.0),
                           ListEventItem(
-                              eventName: 'Barzinho pós aula',
-                              eventDate:
-                                  DateFormat('dd/MM/yyyy').format(currentDate!),
-                              eventId: '1',
-                              priority: EventPriority.low),
+                            eventName: 'Barzinho pós aula',
+                            eventDate: currentDate!,
+                            eventId: '1',
+                            description: 'Relaxar',
+                            priority: EventPriority.low,
+                            isEditing: true,
+                          ),
                           const SizedBox(height: 15.0),
                           ListEventItem(
-                              eventName: 'Terapia',
-                              eventDate:
-                                  DateFormat('dd/MM/yyyy').format(currentDate!),
-                              eventId: '1',
-                              priority: EventPriority.high),
+                            eventName: 'Terapia',
+                            eventDate: currentDate!,
+                            eventId: '1',
+                            description: 'Surtar',
+                            priority: EventPriority.high,
+                            isEditing: true,
+                          ),
                           const SizedBox(height: 15.0),
                         ],
                       )),

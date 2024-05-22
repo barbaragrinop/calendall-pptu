@@ -1,6 +1,4 @@
-import 'package:frontend/pages/add_event.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/pages/home.dart';
 import 'package:frontend/pages/login.dart';
 
 void main() {
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const LoginPage(),
     );
   }
 }

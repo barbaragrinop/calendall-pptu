@@ -9,12 +9,28 @@ import 'package:frontend/components/Input/textarea.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
 import 'package:frontend/pages/home.dart';
 import 'package:frontend/util/custom_colors.dart';
+import 'package:frontend/util/priorities.dart';
 import 'package:intl/intl.dart';
 
 class AddEventPage extends StatelessWidget {
   final DateTime? propInitialDate;
-  
-  AddEventPage({super.key, this.propInitialDate});
+  final String? eventId;
+  final String? eventName;
+  final DateTime? eventDate;
+  final EventPriority? priority;
+  final bool isEditing;
+  final String? description;
+
+  AddEventPage({
+    super.key,
+    this.propInitialDate,
+    this.eventId,
+    this.eventName,
+    this.eventDate,
+    this.description,
+    this.priority,
+    this.isEditing = false,
+  });
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
@@ -25,10 +41,18 @@ class AddEventPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (propInitialDate != null) {
+      startDateController.text =
+          DateFormat('dd/MM/yyyy').format(propInitialDate!);
+    }
 
-    if(propInitialDate != null){
-      print("asdasdasd $propInitialDate.toString()");
-      startDateController.text = DateFormat('dd/MM/yyyy').format(propInitialDate!);
+    if (isEditing) {
+      titleController.text = eventName ?? '';
+      descriptionController.text = description!; // You can assign the description here if needed
+      startDateController.text =
+          eventDate != null ? DateFormat('dd/MM/yyyy').format(eventDate!) : '';
+      // priorityController.text = priority ?? '';
+      // Set other controllers as needed
     }
 
     return Scaffold(
@@ -156,15 +180,17 @@ class AddEventPage extends StatelessWidget {
                             controller: priorityController,
                             label: "Prioridade",
                             options: const ["Alta", "Média", "Baixa"],
+                            initialValue: priority,
+
                           ),
                           InputSelect(
                             controller: notificationStyleController,
                             label: "Estilo de Notificação",
-                           options: const [
-                            "A cada dia", 
-                            "A cada hora", 
-                            "A cada semana", 
-                           ],
+                            options: const [
+                              "A cada dia",
+                              "A cada hora",
+                              "A cada semana",
+                            ],
                           ),
                           const SizedBox(height: 20),
                           SecondaryButton(
