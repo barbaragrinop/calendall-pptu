@@ -1,9 +1,13 @@
+import 'package:flutter/scheduler.dart';
 import 'package:frontend/components/EventList/event.dart';
 import 'package:frontend/components/Header/primary.dart';
 import 'package:frontend/components/Input/select.dart';
+import 'package:frontend/components/Input/text.dart';
+import 'package:frontend/components/Input/textarea.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/pages/add_event.dart';
+import 'package:frontend/pages/see_events.dart';
 import 'package:frontend/util/custom_colors.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -62,6 +66,12 @@ class _HomePageState extends State<HomePage> {
     _showPopover(context);
   }
 
+  void _onClickEvent(String title, DateTime date, String description,
+      String priority, String notification) {
+    _showPopoverDetailsEvent(
+        context, title, date, description, priority, notification);
+  }
+
   void _showPopover(BuildContext context) {
     showDialog(
       context: context,
@@ -92,6 +102,12 @@ class _HomePageState extends State<HomePage> {
                 title: const Text("Ver Eventos"),
                 onTap: () {
                   // Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => EventByDayPage(
+                                currentDate: today,
+                              )));
                 },
               ),
               Divider(
@@ -102,7 +118,12 @@ class _HomePageState extends State<HomePage> {
               ListTile(
                 title: const Text("Cadastrar Eventos"),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute( builder: (context) => AddEventPage(propInitialDate: today,)));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AddEventPage(
+                                propInitialDate: today,
+                              )));
                   // Implementação para "Cadastrar Eventos"
                   // Navigator.pop(context);
                 },
@@ -120,6 +141,123 @@ class _HomePageState extends State<HomePage> {
         eventDates.add(date);
       }
     });
+  }
+
+  void _showPopoverDetailsEvent(BuildContext context, String titles,
+      DateTime date, String description, String priority, String notification) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: Text(
+                      "Detalhes do Evento",
+                      style: TextStyle(fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.close, color: CustomColors.red),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Text("Título ",
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  )),
+              Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      titles,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+              const Text("Descrição ",
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  )),
+              Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      description,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+              const Text("Data",
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  )),
+              Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      DateFormat('dd/MM/yyyy').format(date),
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+              const Text("Prioridade",
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  )),
+              Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      priority,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+              const Text("Estilo  de notificação",
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  )),
+              Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      notification,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -254,40 +392,79 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ]),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 10.0, bottom: 20.0),
                     child: Text(
-                      'Eventos de hoje - ${DateFormat('dd/MM/yyyy').format(today)}',
-                      style: const TextStyle(
+                      'Próximos eventos',
+                      // 'Próximos eventos - ${DateFormat('dd/MM/yyyy').format(today)}',
+                      style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                         color: CustomColors.blueDark,
                       ),
                     ),
                   ),
-                  ListEventItem(
-                      eventName: 'Conseguir um 10 na matéria',
-                      eventDate: DateFormat('dd/MM/yyyy').format(today),
-                      eventId: '1',
-                      priority: EventPriority.high),
+                  Divider(
+                    thickness: 1.0,
+                    color: Colors.grey[300],
+                    height: 10.0,
+                  ),
+                  Container(
+                      padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
+                      child: const Text(
+                        '31/05/2024 - 4 evento(s)',
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: CustomColors.blueDark,
+                            fontWeight: FontWeight.w500),
+                      )),
+                  GestureDetector(
+                    onTap: () {
+                      _onClickEvent('Conseguir um 10 em PPTU', today,
+                          'Estudar muito para a prova', 'Alta', '1 dia antes');
+                    },
+                    child: ListEventItem(
+                        eventName: 'Conseguir um 10 na matéria',
+                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventId: '1',
+                        priority: EventPriority.high),
+                  ),
                   const SizedBox(height: 15.0),
-                  ListEventItem(
-                      eventName: 'Estudar engenharia',
-                      eventDate: DateFormat('dd/MM/yyyy').format(today),
-                      eventId: '1',
-                      priority: EventPriority.medium),
+                  GestureDetector(
+                    onTap: () {
+                      _onClickEvent('Estudar engenharia', today,
+                          'Estudar muito', 'Média', '1 dia antes');
+                    },
+                    child: ListEventItem(
+                        eventName: 'Estudar engenharia',
+                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventId: '1',
+                        priority: EventPriority.medium),
+                  ),
                   const SizedBox(height: 15.0),
-                  ListEventItem(
-                      eventName: 'Barzinho pós aula',
-                      eventDate: DateFormat('dd/MM/yyyy').format(today),
-                      eventId: '1',
-                      priority: EventPriority.low),
+                  GestureDetector(
+                    onTap: () {
+                      _onClickEvent('Barzinho pós aula', today, 'Relaxar',
+                          'Baixa', '1 dia antes');
+                    },
+                    child: ListEventItem(
+                        eventName: 'Barzinho pós aula',
+                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventId: '1',
+                        priority: EventPriority.low),
+                  ),
                   const SizedBox(height: 15.0),
-                  ListEventItem(
-                      eventName: 'Terapia',
-                      eventDate: DateFormat('dd/MM/yyyy').format(today),
-                      eventId: '1',
-                      priority: EventPriority.high),
+                  GestureDetector(
+                    onTap: () {
+                      _onClickEvent('Terapia', today, 'Falar sobre a semana',
+                          'Alta', '1 dia antes');
+                    },
+                    child: ListEventItem(
+                        eventName: 'Terapia',
+                        eventDate: DateFormat('dd/MM/yyyy').format(today),
+                        eventId: '1',
+                        priority: EventPriority.high),
+                  ),
                   const SizedBox(height: 15.0),
                 ],
               )),

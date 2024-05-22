@@ -10,23 +10,22 @@ class InputText extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final bool hasBorder;
   final void Function(String? parm)? onChanged;
- 
-
+  final String? initialValue;
 
   const InputText({
-    this.controller, 
+    this.controller,
     this.validator,
     this.onChanged,
-    required this.name, 
+    required this.name,
     required this.isEnabled,
-    required this.inputType, 
-    required this.textCapitalization, 
+    required this.inputType,
+    required this.textCapitalization,
     required this.hasBorder,
-    super.key, 
+    this.initialValue,
+    super.key,
   });
-  
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 15),
@@ -36,6 +35,7 @@ class InputText extends StatelessWidget {
         enabled: isEnabled,
         onChanged: onChanged != null ? (value) => onChanged!(value) : null,
         maxLines: 1,
+        initialValue: initialValue,
         keyboardType: inputType,
         textAlign: TextAlign.start,
         textCapitalization: textCapitalization,
@@ -51,29 +51,41 @@ class InputText extends StatelessWidget {
           labelStyle: const TextStyle(color: CustomColors.primaryGray),
           border: hasBorder
               ? const OutlineInputBorder(
-                  borderSide: BorderSide(color: CustomColors.blueDark1), // Use CustomColors.blueDark1 if intended
+                  borderSide: BorderSide(
+                      color: CustomColors
+                          .blueDark1), // Use CustomColors.blueDark1 if intended
                   borderRadius: BorderRadius.all(Radius.circular(6)),
                 )
               : const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.transparent), // Use CustomColors.blueDark1 if intended
+                  borderSide: BorderSide(
+                      color: Colors
+                          .transparent), // Use CustomColors.blueDark1 if intended
                   borderRadius: BorderRadius.all(Radius.circular(6)),
                 ),
           enabledBorder: hasBorder
               ? const OutlineInputBorder(
-                  borderSide: BorderSide(color: CustomColors.blueDark1), // Use CustomColors.blueDark1 if intended
+                  borderSide: BorderSide(
+                      color: CustomColors
+                          .blueDark1), // Use CustomColors.blueDark1 if intended
                   borderRadius: BorderRadius.all(Radius.circular(6)),
                 )
               : const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.transparent), // Use CustomColors.blueDark1 if intended
+                  borderSide: BorderSide(
+                      color: Colors
+                          .transparent), // Use CustomColors.blueDark1 if intended
                   borderRadius: BorderRadius.all(Radius.circular(6)),
                 ),
           focusedBorder: hasBorder
               ? const OutlineInputBorder(
-                  borderSide: BorderSide(color: CustomColors.blueDark1), // Use CustomColors.blueDark1 if intended
+                  borderSide: BorderSide(
+                      color: CustomColors
+                          .blueDark1), // Use CustomColors.blueDark1 if intended
                   borderRadius: BorderRadius.all(Radius.circular(6)),
                 )
               : const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.transparent), // Use CustomColors.blueDark1 if intended
+                  borderSide: BorderSide(
+                      color: Colors
+                          .transparent), // Use CustomColors.blueDark1 if intended
                   borderRadius: BorderRadius.all(Radius.circular(6)),
                 ),
         ),

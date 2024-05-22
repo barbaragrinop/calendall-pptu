@@ -1,7 +1,9 @@
 import 'package:frontend/components/Header/primary.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
+import 'package:frontend/pages/login.dart';
 import 'package:frontend/pages/settings/personal_data.dart';
 import 'package:frontend/pages/settings/sound_notification.dart';
+import 'package:frontend/pages/settings/sync_calendars.dart';
 import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -37,15 +39,11 @@ class SettingsPage extends StatelessWidget {
             }),
             _listItem(Icons.calendar_month, "Calendários sincronizados", () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PersonalDataPage()));
-            }),
-            _listItem(Icons.history, "Histórico de atividades", () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PersonalDataPage()));
+                  MaterialPageRoute(builder: (context) => SyncCalendarPage()));
             }),
             _listItem(Icons.logout, "Sair da Conta", () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PersonalDataPage()));
+                  MaterialPageRoute(builder: (context) => const  LoginPage()));
             }),
           ])),
       bottomNavigationBar: const CustomNavigationBar(

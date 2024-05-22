@@ -12,6 +12,7 @@ class InputTextArea extends StatelessWidget {
   final bool hasBorder;
   final int minLines;
   final int maxLines;
+  final String? initialValue;
 
   const InputTextArea({
     super.key,
@@ -25,6 +26,7 @@ class InputTextArea extends StatelessWidget {
     this.minLines = 1,
     this.maxLines = 1,
     this.hasBorder = false,
+    this.initialValue,
   });
 
   @override
@@ -38,6 +40,7 @@ class InputTextArea extends StatelessWidget {
         onChanged: onChanged != null ? (value) => onChanged!(value) : null,
         maxLines: maxLines,
         minLines: minLines,
+        initialValue: initialValue,
         keyboardType: inputType,
         textAlign: TextAlign.start,
         textCapitalization: textCapitalization,

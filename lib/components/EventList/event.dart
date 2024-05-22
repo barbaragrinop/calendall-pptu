@@ -21,10 +21,9 @@ class ListEventItem extends StatelessWidget {
       case EventPriority.high:
         return CustomColors.red;
       case EventPriority.medium:
-          return CustomColors.yellow;
+        return CustomColors.yellow;
       case EventPriority.low:
-          return CustomColors.blueMedium;
-        
+        return CustomColors.blueMedium;
     }
   }
 
@@ -35,7 +34,7 @@ class ListEventItem extends StatelessWidget {
         Container(
           width: 15,
           height: 50,
-          decoration:BoxDecoration(
+          decoration: BoxDecoration(
             color: getColorEvent(priority),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(10),

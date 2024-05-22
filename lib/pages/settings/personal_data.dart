@@ -2,6 +2,7 @@ import 'package:frontend/components/Button/primary.dart';
 import 'package:frontend/components/Header/primary.dart';
 import 'package:frontend/components/Input/text.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
+import 'package:frontend/pages/home.dart';
 import 'package:frontend/util/custom_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class PersonalDataPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Header(hasReturnIcon: false),
+      appBar: const Header(hasReturnIcon: true),
       backgroundColor: CustomColors.white01,
       body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -27,7 +28,7 @@ class PersonalDataPage extends StatelessWidget {
                 Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(top: 45.0, bottom: 45.0),
-                    child: const Text("Configurações",
+                    child: const Text("Dados pessoais",
                         style: TextStyle(
                             fontFamily: 'AmaticSC',
                             fontSize: 40,
@@ -57,12 +58,10 @@ class PersonalDataPage extends StatelessWidget {
                     margin: const EdgeInsets.only(top: 40.0),
                     child: PrimaryButton(
                         text: "Entrar",
-                        onPressed: () => {},
-                        // onPressed: () => Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => PersonalDataPage())
-                        //       ),
+                        onPressed: () => Navigator.push(context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage())
+                              ),
                         isEnabled: true))
               ])),
       bottomNavigationBar: const CustomNavigationBar(
