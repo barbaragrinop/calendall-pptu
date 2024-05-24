@@ -369,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.only(top: 10.0, bottom: 20.0),
                     child: Text(
                       'Filtrar',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                         color: CustomColors.blueDark,

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/components/Button/secondary.dart';
 import 'package:frontend/components/EventList/event.dart';
 import 'package:frontend/components/Header/primary.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
-import 'package:frontend/pages/home.dart';
 import 'package:frontend/util/custom_colors.dart';
 import 'package:frontend/util/priorities.dart';
 import 'package:intl/intl.dart';

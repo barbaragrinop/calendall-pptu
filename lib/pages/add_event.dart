@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/components/Button/primary.dart';
 import 'package:frontend/components/Button/secondary.dart';
 import 'package:frontend/components/Header/primary.dart';
 import 'package:frontend/components/Input/date.dart';
@@ -46,11 +45,13 @@ class AddEventPage extends StatelessWidget {
           DateFormat('dd/MM/yyyy').format(propInitialDate!);
     }
 
+
     if (isEditing) {
       titleController.text = eventName ?? '';
       descriptionController.text = description!; // You can assign the description here if needed
       startDateController.text =
           eventDate != null ? DateFormat('dd/MM/yyyy').format(eventDate!) : '';
+      
       // priorityController.text = priority ?? '';
       // Set other controllers as needed
     }
@@ -66,8 +67,8 @@ class AddEventPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   vertical: 10.0,
                   horizontal: 20.0), // Adjust padding values as needed
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Wrap(
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                       padding: const EdgeInsets.only(bottom: 20.0, top: 10.0),
@@ -180,8 +181,6 @@ class AddEventPage extends StatelessWidget {
                             controller: priorityController,
                             label: "Prioridade",
                             options: const ["Alta", "Média", "Baixa"],
-                            initialValue: priority,
-
                           ),
                           InputSelect(
                             controller: notificationStyleController,
@@ -194,7 +193,7 @@ class AddEventPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
                           SecondaryButton(
-                              text: "Cadastar Evento",
+                              text: "Cadastrar Evento",
                               onPressed: () {
                                 // save();
                                 Navigator.push(
@@ -214,5 +213,18 @@ class AddEventPage extends StatelessWidget {
         selectedIndex: 0,
       ),
     );
+  }
+}
+
+EventPriority _priorityToString(String priority) {
+  switch (priority) {
+    case 'Baixa': 
+    return EventPriority.low ;
+      case 'Média':
+    return EventPriority.medium;
+      case 'Alta':
+    return EventPriority.high;
+    default:
+      throw ArgumentError('Invalid priority: $priority');
   }
 }

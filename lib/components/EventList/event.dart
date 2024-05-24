@@ -36,7 +36,6 @@ class ListEventItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String formattedDate = DateFormat('dd/MM/yyyy').format(eventDate);
-
     return Row(
       children: [
         Container(
