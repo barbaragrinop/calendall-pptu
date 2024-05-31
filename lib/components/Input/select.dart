@@ -1,6 +1,5 @@
   import 'package:flutter/material.dart';
   import 'package:frontend/util/custom_colors.dart';
-  import 'package:frontend/util/priorities.dart';
 
   class InputSelect extends StatefulWidget {
     final List<String> options;

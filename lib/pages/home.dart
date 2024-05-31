@@ -1,9 +1,6 @@
-import 'package:flutter/scheduler.dart';
 import 'package:frontend/components/EventList/event.dart';
 import 'package:frontend/components/Header/primary.dart';
 import 'package:frontend/components/Input/select.dart';
-import 'package:frontend/components/Input/text.dart';
-import 'package:frontend/components/Input/textarea.dart';
 import 'package:frontend/components/Menu/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/pages/add_event.dart';
