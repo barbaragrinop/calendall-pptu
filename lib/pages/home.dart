@@ -260,6 +260,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('dd/MM/yyyy').format(today);
+    
     return Scaffold(
       appBar: const Header(
         hasReturnIcon: false,
@@ -410,8 +412,8 @@ class _HomePageState extends State<HomePage> {
                   Container(
                       padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
                       child: Text(
-                        '$today - 4 evento(s)',
-                        style: TextStyle(
+                        '$formattedDate - 4 evento(s)',
+                        style: const TextStyle(
                             fontSize: 15,
                             color: CustomColors.blueDark,
                             fontWeight: FontWeight.w500),
