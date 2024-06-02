@@ -410,7 +410,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                       padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
                       child: const Text(
-                        '31/05/2024 - 4 evento(s)',
+                        '$today - 4 evento(s)',
                         style: TextStyle(
                             fontSize: 15,
                             color: CustomColors.blueDark,
